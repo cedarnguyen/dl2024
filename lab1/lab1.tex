@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Labwork 1: Gradient Descent}
+
+\begin{document}
+
+\maketitle
+
+\setlength\parindent{0pt}
+
+\section{Introduction}
+
+Gradient descent is An iterative algorithm to find minimum value
+
+It will use derivative to find the minimum value of a function f(x)
+
+\section{Implementation}
+
+I define the f(x) and df(x) which is the derivative of f(x)
+
+we define a gradient descent which includes:
+
+- X as the initial value of x
+
+- Lr as the learning rate( include 0.001, 0.01, 0.1)
+
+- iter as the number of times we repeat the process
+
+- df and f as the function and the first derivative function
+
+
+We update the X with this formula: 
+$$x = x - l \cdot df(x)$$
+The step size is determined by the learning rate, and it will do the whole updating process repeatedly and the number of time it repeat is depends on iter.
+
+After that, we print all cases 
+
+\section{Evaluation}
+
+Test with $y = x^4$
+
+In the code, I experimented with different learning rates (0.001, 0.01, 0.1, 0.4) over 10 runs. I observed that using a learning rate of 0.4 resulted in the minimum value of X across all cases. With lower learning rates (0.001, 0.01, 0.1), the changes in the value of X occurred more slowly. The higher learning rate facilitated quicker convergence towards the minimum value of X for the function x**4. However, it also led to X bouncing within the range (-0.011586158707713498, 0.006951695224628098). This change is attributed to the large learning rate causing significant differences between successive updates.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{image.png}
+    \caption{Result figure}
+    \label{result figure}
+\end{figure}
+
+
+\section{Conclusion}
+
+In this lab work, we conducted gradient descent optimization to minimize a given function $ f(x) = x^4 $ and observed its behavior under different learning rates. We implemented the algorithm from scratch and monitored the iterative steps to track the progression of $ x $ towards the minimum value of $ f(x) $.
+
+An interesting finding is that the choice of learning rate significantly influences the convergence behavior of the algorithm. Higher learning rates ($ \eta = 0.4 $) led to rapid convergence but resulted in oscillations and overshooting of $ x $. On the other hand, lower learning rates ($ \eta = 0.001, 0.01, 0.1 $) led to slower convergence but exhibited more stable behavior without significant oscillations.
+
+\end{document}
