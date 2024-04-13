@@ -12,5 +12,6 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: MyName
+* Name: Nguyễn Tự Tùng
+* ID:   M23.CT.012
 
