@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Image Classification Using Convolutional Neural Networks}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This report presents a Convolutional Neural Network (CNN) implemented in TensorFlow and Keras for image classification. The dataset consists of images stored in a directory, each labeled by a prefix in the filename. The goal is to train a CNN to classify these images accurately.
+
+\section{Data Intro}
+This data is collected on Kaggle, contains 10 classes, contain about 26.2k images in totals:
+
+"cane": "dog", "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel", "dog": "cane", "cavallo": "horse", "elephant" : "elefante", "butterfly": "farfalla", "chicken": "gallina", "cat": "gatto", "cow": "mucca", "spider": "ragno", "squirrel": "scoiattolo"
+
+
+\section{Data Loading and Preprocessing}
+The images are loaded and preprocessed using the following steps:
+\begin{itemize}
+    \item Images are read from a specified directory checked for validity and also changed into a dataframe.
+    \item Each image is resized to $100 \times 100$ pixels and normalized by dividing the pixel values by 255.0.
+    \item Labels are extracted from the filenames and converted to numerical format using a mapping dictionary.
+    \item Labels are then converted to categorical format using one-hot encoding.
+\end{itemize}
+
+
+\section{Data Augmentation}
+Data augmentation is performed on the training data to improve the model's generalization:
+\begin{itemize}
+    \item Rotations, shifts, shear, zoom, and horizontal flips are applied.
+    \item The validation data is not augmented.
+\end{itemize}
+
+\section{Model Architecture}
+The CNN model is constructed using the Keras Sequential API with the following layers:
+\begin{itemize}
+    \item Three convolutional layers with ReLU activation and max-pooling.
+    \item A flattening layer to convert 2D features to 1D.
+    \item A fully connected dense layer with ReLU activation.
+    \item An output dense layer with softmax activation for classification.
+\end{itemize}
+
+\section{Model Compilation and Training}
+The model is compiled with the Adam optimizer and categorical cross-entropy loss function. The training process involves fitting the model to the training data and validating the validation data for 200 epochs.
+
+
+\section{Model Saving}
+After training, the model is saved as an .h5 file to a specified path for later use.
+
+\section{Result}
+
+After training the model with 200 epochs( which I stopped at epoch 23), the best accuracy was 0.7221. This illustrates that this model works well for this set of data. The accuracy rapidly grows from epoch 1 to epoch 20, with slower growth afterward. and also have a decrease in accuracy between epoch 21 and 22
+
+\section{Conclusion}
+This report documents the implementation and training of a CNN for image classification. The data preprocessing, augmentation, model architecture, and training process are detailed. The trained model is saved for future inference tasks.
+
+\end{document}
